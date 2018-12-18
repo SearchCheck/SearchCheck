@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--dp阶段-->
+    <dimen name="title_bar_height">56dp</dimen>
+    <!--sp阶段-->
+    <dimen name="title_bar_small_text">20sp</dimen>
+    <dimen name="title_bar_big_text">24sp</dimen>
+</resources>

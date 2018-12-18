@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/title_bar_height"
+    android:orientation="horizontal"
+    android:background="@color/colorPrimaryDark">
+
+    <!--左边-->
+    <ImageView
+        android:id="@+id/img_left"
+        android:layout_width="@dimen/title_bar_height"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:src="@drawable/ic_back"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/tv_left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/test_string"
+        android:textColor="@color/colorWhite"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textSize="@dimen/title_bar_small_text"
+        />
+
+    <!--中间-->
+    <AutoCompleteTextView
+        android:id="@+id/atv_search"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/test_string"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/title_bar_big_text"
+        android:visibility="gone"/>
+
+
+    <!--右边-->
+    <ImageView
+        android:id="@+id/img_right"
+        android:layout_width="@dimen/title_bar_height"
+        android:layout_height="match_parent"
+        android:padding="3dp"
+        android:gravity="center"
+        android:src="@drawable/ic_search"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/tv_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/test_string"
+        android:textColor="@color/colorWhite"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textSize="@dimen/title_bar_small_text"
+        />
+
+
+</LinearLayout>
