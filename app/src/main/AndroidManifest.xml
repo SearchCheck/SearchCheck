@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.gxl.searchcheck">
+
+    <!--start  权限申请区-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--end  权限申请区-->
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+
+        <!--start  第三方配置区-->
+
+        <!--end  第三方配置区-->
+
+        <!--start  service区-->
+
+        <!--end  service区-->
+
+        <!--start  activity区-->
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,6 +30,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--end  activity区-->
+
+        <!--start  广播区-->
+
+        <!--end  广播区-->
     </application>
 
 </manifest>
