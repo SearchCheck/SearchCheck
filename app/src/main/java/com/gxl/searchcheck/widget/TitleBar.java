@@ -138,15 +138,15 @@ public class TitleBar extends LinearLayout implements View.OnClickListener {
         }
     }
 
-    private void setGone(View view){
-        if (view != null){
+    private void setGone(View view) {
+        if (view != null) {
             view.setVisibility(GONE);
         }
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.img_left:
             case R.id.tv_left:
                 onClickViewListener.onLeftClickListener();
@@ -155,8 +155,10 @@ public class TitleBar extends LinearLayout implements View.OnClickListener {
             case R.id.tv_right:
                 onClickViewListener.onRightClickListener();
                 break;
-            case R.id.tv_title:break;
-            case R.id.atv_search:break;
+            case R.id.tv_title:
+                break;
+            case R.id.atv_search:
+                break;
         }
     }
 
@@ -186,12 +188,13 @@ public class TitleBar extends LinearLayout implements View.OnClickListener {
         setGone(mTvTitle);
     }
 
-    public void setOnClickViewListener(OnClickViewListener onClickViewListener){
+    public void setOnClickViewListener(OnClickViewListener onClickViewListener) {
         this.onClickViewListener = onClickViewListener;
     }
 
-    public interface OnClickViewListener{
+    public interface OnClickViewListener {
         void onLeftClickListener();
+
         void onRightClickListener();
     }
 

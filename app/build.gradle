@@ -38,7 +38,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
     //banner
     implementation 'com.youth.banner:banner:1.4.10'
-    //recycler adapter
+    //recycler adapter https://www.jianshu.com/p/b343fcff51b0
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
     //okhttp
     implementation 'com.squareup.okhttp3:okhttp:3.11.0'
