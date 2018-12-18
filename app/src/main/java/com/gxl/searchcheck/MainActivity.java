@@ -1,6 +1,6 @@
 package com.gxl.searchcheck;
 
-import com.gxl.searchcheck.base.BaseActivity;
+import com.search.baselibrary.base.BaseActivity;
 
 public class MainActivity extends BaseActivity {
 
