@@ -40,12 +40,4 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
     //okhttp
     implementation 'com.squareup.okhttp3:okhttp:3.11.0'
-    //banner                     https://github.com/youth5201314/banner/blob/master/README.md
-    implementation 'com.youth.banner:banner:1.4.10'
-    //recycler adapter           https://www.jianshu.com/p/b343fcff51b0
-    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
-    // webview                   https://github.com/Justson/AgentWeb/blob/master/README.md
-    implementation 'com.just.agentweb:agentweb:4.0.2'
-    //下拉刷新的上拉加载更多       https://github.com/scwang90/SmartRefreshLayout/blob/release/README.md
-    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-14'
 }
