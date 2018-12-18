@@ -11,11 +11,17 @@ import android.support.multidex.MultiDexApplication;
  * Describe  :
  */
 public abstract class BaseApplication extends MultiDexApplication {
+    private static BaseApplication mInstance;
+
+    public static Context getInstance() {
+        return mInstance;
+    }
 
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         MultiDex.install(this);
+        this.mInstance = this;
     }
 
     @Override

@@ -53,17 +53,11 @@ public class TitleBar extends LinearLayout implements View.OnClickListener {
         } finally {
             ta.recycle();
         }
-    }
-
-    @Override
-    protected void onFinishInflate() {
-        super.onFinishInflate();
         initView();
         setType();
     }
 
     private void initView() {
-        LayoutInflater.from(mContext).inflate(R.layout.widget_titlebar, this);
         mImgLeft = findViewById(R.id.img_left);
         mImgRight = findViewById(R.id.img_right);
         mTvLeft = findViewById(R.id.tv_left);
@@ -188,7 +182,6 @@ public class TitleBar extends LinearLayout implements View.OnClickListener {
 
     public interface OnClickViewListener {
         void onLeftClickListener();
-
         void onRightClickListener();
     }
 

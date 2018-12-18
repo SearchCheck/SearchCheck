@@ -58,6 +58,5 @@ public class SDCardUtils {
             sdDir = Environment.getExternalStorageDirectory();//获取跟目录
         }
         return sdDir.toString();
-
     }
 }

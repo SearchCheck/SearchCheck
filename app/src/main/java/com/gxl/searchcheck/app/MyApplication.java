@@ -3,6 +3,8 @@ package com.gxl.searchcheck.app;
 import android.content.Context;
 
 import com.search.baselibrary.base.BaseApplication;
+import com.search.baselibrary.utils.AppUtils;
+import com.search.baselibrary.utils.CrashHandler;
 
 /**
  * @author Tomze
@@ -17,6 +19,9 @@ public class MyApplication extends BaseApplication {
     public void onCreate() {
         super.onCreate();
         this.mContext = this;
+        if (AppUtils.isDebug(mContext)) {
+            CrashHandler.getInstance().init(this);
+        }
     }
 
     @Override
