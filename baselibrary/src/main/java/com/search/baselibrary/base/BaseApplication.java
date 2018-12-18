@@ -10,26 +10,21 @@ import android.support.multidex.MultiDexApplication;
  * create data : 2018/12/18
  * Describe  :
  */
-public class BaseApplication extends MultiDexApplication {
+public abstract class BaseApplication extends MultiDexApplication {
+
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         MultiDex.install(this);
     }
 
-    private static Context mContext;
-
     @Override
     public void onCreate() {
         super.onCreate();
-        this.mContext = this;
-
     }
 
     /**
      * 获取Application的Context
      */
-    public static Context getContext() {
-        return mContext;
-    }
+    protected abstract Context getContext();
 }

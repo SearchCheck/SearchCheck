@@ -32,9 +32,7 @@ public abstract class BaseFragment extends Fragment {
     /**
      * 在initview和initData之前调用
      */
-    protected void initBefore(View view) {
-
-    }
+    protected void initBefore(View view) {}
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -44,16 +42,12 @@ public abstract class BaseFragment extends Fragment {
     /**
      * 初始化数据
      */
-    protected void initData() {
-
-    }
+    protected void initData() {}
 
     /**
      * 初始化view
      */
-    protected void initView(View view) {
-
-    }
+    protected void initView(View view) {}
 
     /**
      * 获取布局id
@@ -66,12 +60,5 @@ public abstract class BaseFragment extends Fragment {
         if (unbinder != null) {
             unbinder.unbind();
         }
-    }
-
-    /**
-     * 滑动到顶部
-     */
-    public void scrollToTop() {
-
     }
 }

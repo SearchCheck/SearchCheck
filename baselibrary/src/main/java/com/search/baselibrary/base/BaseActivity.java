@@ -43,30 +43,22 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * 初始化toolbar
      */
-    protected void initToolbar() {
-
-    }
+    protected void initToolbar() {}
 
     /**
      * 初始化data
      */
-    protected void initData() {
-
-    }
+    protected void initData() {}
 
     /**
      * 初始化view
      */
-    protected void initView() {
-
-    }
+    protected void initView() {}
 
     /**
      * 最新初始化
      */
-    protected void initBefore() {
-
-    }
+    protected void initBefore() {}
 
     /**
      * 获取布局的id
