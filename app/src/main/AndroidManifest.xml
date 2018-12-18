@@ -4,7 +4,7 @@
     package="com.gxl.searchcheck">
 
     <!--start  权限申请区-->
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!--end  权限申请区-->
 
     <application
