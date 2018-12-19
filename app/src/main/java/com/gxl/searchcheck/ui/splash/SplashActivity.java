@@ -87,6 +87,7 @@ public class SplashActivity extends AppCompatActivity {
                     public void run() throws Exception {
                         Intent toMain = new Intent(SplashActivity.this, MainActivity.class);
                         startActivity(toMain);
+                        finish();
                     }
                 })
                 .subscribe();
