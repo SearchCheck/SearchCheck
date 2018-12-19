@@ -19,6 +19,7 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+# BaseRecyclerViewAdapterHelper
 -keep class com.chad.library.adapter.** {
 *;
 }
@@ -27,3 +28,5 @@
 -keepclassmembers  class **$** extends com.chad.library.adapter.base.BaseViewHolder {
      <init>(...);
 }
+# xxpermission
+-dontwarn com.hjq.permissions.**

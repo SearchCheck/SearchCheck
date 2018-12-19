@@ -3,11 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.gxl.searchcheck">
 
-    <!--start  权限申请区-->
+    <!-- start  权限申请区 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <!--end  权限申请区-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+
+    <!-- end  权限申请区 -->
     <application
         android:name=".app.MyApplication"
         android:allowBackup="true"
@@ -16,27 +19,36 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
 
-        <!--start  第三方配置区-->
+        <!-- start  第三方配置区 -->
 
-        <!--end  第三方配置区-->
 
-        <!--start  service区-->
+        <!-- end  第三方配置区 -->
 
-        <!--end  service区-->
 
-        <!--start  activity区-->
-        <activity android:name=".MainActivity">
+        <!-- start  service区 -->
+
+
+        <!-- end  service区 -->
+
+
+        <!-- start  activity区 -->
+        <activity android:name=".ui.splash.SplashActivity"
+            android:theme="@style/FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--end  activity区-->
+        <activity android:name=".MainActivity" />
+        <!-- end  activity区 -->
 
-        <!--start  广播区-->
 
-        <!--end  广播区-->
+        <!-- start  广播区 -->
+
+
+        <!-- end  广播区 -->
+        <activity android:name=".ui.splash.SplashActivity"></activity>
     </application>
 
 </manifest>

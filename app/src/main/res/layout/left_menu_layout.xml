@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.NavigationView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/home_navigation"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_gravity="left"
+    android:background="@color/white_255"
+    android:layout_marginRight="@dimen/dp_90"
+    app:headerLayout="@layout/left_menu_head"
+    app:itemIconTint="@color/navigation_item_select"
+    app:itemTextColor="@color/navigation_item_select"
+    app:menu="@menu/left_menu_menu">
 
-</android.support.constraint.ConstraintLayout>
+</android.support.design.widget.NavigationView>
