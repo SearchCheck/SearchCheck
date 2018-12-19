@@ -155,10 +155,6 @@ public class RegexUtils {
 		return "";
 	}
 
-
-
-
-
 	/**
 	 * 只能输入字母和汉字 这个返回的是过滤之后的字符串
 	 */

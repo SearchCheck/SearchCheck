@@ -4,6 +4,8 @@ import android.content.Context;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
+import com.search.baselibrary.utils.CrashHandler;
+
 /**
  * author : gxl
  * email : 1739037476@qq.com

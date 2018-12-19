@@ -26,7 +26,7 @@ import java.util.Map;
  * @time 2018年12月19日 0:28
  * @desc 存放BUG日志
  */
-public class CrashHandler  implements Thread.UncaughtExceptionHandler {
+public class CrashHandler implements Thread.UncaughtExceptionHandler {
     public static String TAG = "MyCrash";
     // 系统默认的UncaughtException处理类
     private Thread.UncaughtExceptionHandler mDefaultHandler;
@@ -192,7 +192,7 @@ public class CrashHandler  implements Thread.UncaughtExceptionHandler {
         String time = formatter.format(new Date());
         String fileName = time + ".log";
         if (SDCardUtils.isAvailable()) {
-            String path = getGlobalpath();
+            String path = getGlobalPath();
             File dir = new File(path);
             if (!dir.exists())
                 dir.mkdirs();
@@ -205,8 +205,8 @@ public class CrashHandler  implements Thread.UncaughtExceptionHandler {
         return fileName;
     }
 
-    public static String getGlobalpath() {
-        return Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator;
+    public static String getGlobalPath() {
+        return Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "SearchCheck" + File.separator;
     }
 
     public static void setTag(String tag) {

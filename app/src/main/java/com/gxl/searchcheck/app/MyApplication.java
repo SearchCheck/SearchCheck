@@ -19,9 +19,6 @@ public class MyApplication extends BaseApplication {
     public void onCreate() {
         super.onCreate();
         this.mContext = this;
-        if (AppUtils.isDebug(mContext)) {
-            CrashHandler.getInstance().init(this);
-        }
     }
 
     @Override
