@@ -10,7 +10,7 @@
         android:layout_marginRight="@dimen/dp_20"
         android:layout_marginTop="@dimen/dp_20"
         android:padding="@dimen/dp_10"
-        android:background="@drawable/splash_jump_shape"
+        android:background="@drawable/shape_splash_jump"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:text="@string/splash_jump"

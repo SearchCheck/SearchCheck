@@ -3,23 +3,23 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/item_movie"
-            android:icon="@drawable/movie"
+            android:icon="@drawable/ic_movie"
             android:title="@string/movie" />
         <item
             android:id="@+id/item_train"
-            android:icon="@drawable/train"
+            android:icon="@drawable/ic_train"
             android:title="@string/train" />
         <item
             android:id="@+id/item_express"
-            android:icon="@drawable/express"
+            android:icon="@drawable/ic_express"
             android:title="@string/express" />
         <item
             android:id="@+id/item_translation"
-            android:icon="@drawable/translation"
+            android:icon="@drawable/ic_translation"
             android:title="@string/translation" />
         <item
             android:id="@+id/item_weather"
-            android:icon="@drawable/weather"
+            android:icon="@drawable/ic_weather"
             android:title="@string/weather" />
     </group>
 </menu>
