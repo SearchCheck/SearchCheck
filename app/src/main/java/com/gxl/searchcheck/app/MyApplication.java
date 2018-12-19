@@ -13,19 +13,12 @@ import com.search.baselibrary.utils.CrashHandler;
  */
 public class MyApplication extends BaseApplication {
 
-    private Context mContext;
-
     @Override
     public void onCreate() {
         super.onCreate();
-        this.mContext = this;
-        if (AppUtils.isDebug(mContext)) {
+        if (AppUtils.isDebug(this)) {
             CrashHandler.getInstance().init(this);
         }
     }
 
-    @Override
-    public Context getContext() {
-        return mContext;
-    }
 }

@@ -29,8 +29,4 @@ public abstract class BaseApplication extends MultiDexApplication {
         super.onCreate();
     }
 
-    /**
-     * 获取Application的Context
-     */
-    protected abstract Context getContext();
 }
