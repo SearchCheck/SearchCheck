@@ -1,11 +1,13 @@
 package com.gxl.searchcheck.ui.splash;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.gxl.searchcheck.MainActivity;
 import com.gxl.searchcheck.R;
 import com.hjq.permissions.OnPermission;
 import com.hjq.permissions.Permission;
@@ -27,7 +29,7 @@ public class SplashActivity extends AppCompatActivity {
     private TextView mTvJump;
     private ImageView mIvSearch;
     //跳转时间
-    private static final int JUMP_TIME=2;
+    private static final int JUMP_TIME=3;
     private Disposable mDisposable;
 
     @Override
@@ -75,13 +77,14 @@ public class SplashActivity extends AppCompatActivity {
                 .doOnNext(new Consumer<Long>() {
                     @Override
                     public void accept(Long aLong) throws Exception {
-                        mTvJump.setText(String.format(getString(R.string.splash_jump),JUMP_TIME-aLong));
+                        mTvJump.setText(String.format(getString(R.string.splash_jump),(JUMP_TIME - aLong) + ""));
                     }
                 })
                 .doOnComplete(new Action() {
                     @Override
                     public void run() throws Exception {
-
+                        Intent toMain = new Intent(SplashActivity.this, MainActivity.class);
+                        startActivity(toMain);
                     }
                 })
                 .subscribe();

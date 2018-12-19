@@ -85,13 +85,13 @@ public class TitleBar extends LinearLayout implements View.OnClickListener {
                 //左图中搜右字
                 mImgLeft.setVisibility(VISIBLE);
                 mAtvSearch.setVisibility(VISIBLE);
-                mTvTitle.setVisibility(VISIBLE);
+                mTvRight.setVisibility(VISIBLE);
                 break;
             case 3:
                 //左图中字右字
                 mImgLeft.setVisibility(VISIBLE);
                 mTvTitle.setVisibility(VISIBLE);
-                mTvTitle.setVisibility(VISIBLE);
+                mTvRight.setVisibility(VISIBLE);
                 break;
             case 4:
                 //左字中字右字
@@ -140,6 +140,9 @@ public class TitleBar extends LinearLayout implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        if (onClickViewListener == null) {
+            return;
+        }
         int i = v.getId();
         if (i == R.id.img_left || i == R.id.tv_left) {
             onClickViewListener.onLeftClickListener();

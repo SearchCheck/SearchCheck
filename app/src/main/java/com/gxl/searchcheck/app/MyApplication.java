@@ -21,7 +21,6 @@ public class MyApplication extends BaseApplication {
         this.mContext = this;
     }
 
-    @Override
     public Context getContext() {
         return mContext;
     }

@@ -8,9 +8,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-
     <!-- end  权限申请区 -->
+
     <application
         android:name=".app.MyApplication"
         android:allowBackup="true"
@@ -21,12 +20,9 @@
 
         <!-- start  第三方配置区 -->
 
-
         <!-- end  第三方配置区 -->
 
-
         <!-- start  service区 -->
-
 
         <!-- end  service区 -->
 
@@ -43,12 +39,9 @@
         <activity android:name=".MainActivity" />
         <!-- end  activity区 -->
 
-
         <!-- start  广播区 -->
 
-
         <!-- end  广播区 -->
-        <activity android:name=".ui.splash.SplashActivity"></activity>
     </application>
 
 </manifest>
