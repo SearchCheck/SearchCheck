@@ -12,6 +12,7 @@ import com.gxl.searchcheck.R;
 import com.hjq.permissions.OnPermission;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
+import com.search.baselibrary.utils.AppUtils;
 import com.search.baselibrary.utils.ToastUtils;
 
 import java.util.List;
@@ -29,7 +30,7 @@ public class SplashActivity extends AppCompatActivity {
     private TextView mTvJump;
     private ImageView mIvSearch;
     //跳转时间
-    private static final int JUMP_TIME=3;
+    private int JUMP_TIME=3;
     private Disposable mDisposable;
 
     @Override
@@ -40,6 +41,7 @@ public class SplashActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         mTvJump = findViewById(R.id.tv_jump);
         mIvSearch = findViewById(R.id.iv_search);
+        JUMP_TIME = AppUtils.isDebug(this) ? 0 : 3;
         initPermissions();
     }
 
