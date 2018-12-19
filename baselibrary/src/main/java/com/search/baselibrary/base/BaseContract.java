@@ -10,12 +10,10 @@ public interface BaseContract {
     interface View extends BaseView<Presenter> {
     }
 
-    abstract class Presenter extends BasePresenter<View, Model> {
+    abstract class Presenter extends BasePresenter<View> {
         protected Presenter(View mView) {
             super(mView);
         }
     }
 
-    interface Model extends BaseModel<Presenter> {
-    }
 }
