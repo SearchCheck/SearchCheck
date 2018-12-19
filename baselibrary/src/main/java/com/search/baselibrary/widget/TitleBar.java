@@ -153,32 +153,56 @@ public class TitleBar extends LinearLayout implements View.OnClickListener {
         }
     }
 
+    /**
+     *  设置左右两边和中间的文字
+     * @param leftText
+     * @param titleText
+     * @param rightText
+     */
     public void setTitleBarText(String leftText, String titleText, String rightText) {
         setText(mTvLeft, leftText);
         setText(mTvTitle, titleText);
         setText(mTvRight, rightText);
     }
 
+    /**
+     *  设置左右两边的图像素材 没有可以写0
+     * @param left
+     * @param right
+     */
     public void setTitleBarImage(int left, int right) {
         setImage(mImgLeft, left);
         setImage(mImgRight, right);
     }
 
+    /**
+     *  设置左边控件隐藏
+     */
     public void setLeftGone() {
         setGone(mTvLeft);
         setGone(mImgLeft);
     }
 
+    /**
+     *  设置右边控件隐藏
+     */
     public void setRightGone() {
         setGone(mTvRight);
         setGone(mImgRight);
     }
 
+    /**
+     *  设置中间控件隐藏
+     */
     public void setMiddleGone() {
         setGone(mAtvSearch);
         setGone(mTvTitle);
     }
 
+    /**
+     *  设置左右两边点击监听
+     * @param onClickViewListener
+     */
     public void setOnClickViewListener(OnClickViewListener onClickViewListener) {
         this.onClickViewListener = onClickViewListener;
     }
