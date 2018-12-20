@@ -1,5 +1,6 @@
 package com.gxl.searchcheck.net;
 
+import com.gxl.searchcheck.app.URLs;
 import com.gxl.searchcheck.greendao.DaoManager;
 
 import java.util.concurrent.TimeUnit;
@@ -21,12 +22,14 @@ public class RetrofitManager {
 
     private RetrofitManager() {
         OkHttpClient client = new OkHttpClient.Builder()
+                .addInterceptor(new ChangeUrlInterceptor())
                 .writeTimeout(10000, TimeUnit.MILLISECONDS)
                 .readTimeout(10000, TimeUnit.MILLISECONDS)
                 .connectTimeout(10000, TimeUnit.MILLISECONDS)
                 .build();
 
         mRetrofit = new Retrofit.Builder()
+                .baseUrl(URLs.BASE_URL)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

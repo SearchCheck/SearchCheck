@@ -1,5 +1,7 @@
 package com.gxl.searchcheck.utils;
 
+import com.gxl.searchcheck.app.URLs;
+
 /**
  * author : gxl
  * email : 1739037476@qq.com
@@ -12,17 +14,21 @@ public class AppConstants {
      * 数据库目录
      */
     public static final String DB_DIR = "db";
+
     /**
      * 存放数据的主目录
      */
     public static final String ROOT_DIR = "SearchCheck";
+
     /**
      * 数据库的名称
      */
     public static final String DB_NAME = "search";
-    /**
-     * 基础的URL
-     */
-    public static final String BASE_URL = "";
+
+    public static final String DICT = "DICT";
+    public static final String TRANSLATE = "TRANSLATE";
+    public static final String WEATHER = "WEATHER";
+    public static final String EXPRESS = "EXPRESS";
+    public static final String MOVIE = "MOVIE";
 
 }

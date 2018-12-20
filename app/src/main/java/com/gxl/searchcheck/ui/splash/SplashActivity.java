@@ -30,7 +30,7 @@ public class SplashActivity extends AppCompatActivity {
     private TextView mTvJump;
     private ImageView mIvSearch;
     //跳转时间
-    private int JUMP_TIME=3;
+    private int JUMP_TIME = 3;
     private Disposable mDisposable;
 
     @Override
