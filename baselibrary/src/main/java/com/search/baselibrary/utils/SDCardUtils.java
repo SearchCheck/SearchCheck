@@ -49,7 +49,6 @@ public class SDCardUtils {
      * @return Stringpath
      */
     public static String getSDPath(){
-
         File sdDir = null;
         boolean sdCardExist = Environment.getExternalStorageState()
                                          .equals(Environment.MEDIA_MOUNTED);   //判断sd卡是否存在

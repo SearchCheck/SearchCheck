@@ -31,4 +31,5 @@ public abstract class BaseApplication extends MultiDexApplication {
         super.onCreate();
     }
 
+    public abstract Context getContext();
 }
