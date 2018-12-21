@@ -1,4 +1,4 @@
-package com.gxl.searchcheck.mvp;
+package com.search.baselibrary.base.mvp;
 
 import com.search.baselibrary.base.BaseActivity;
 
