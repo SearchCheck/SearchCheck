@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/title_bar_height"
     android:orientation="horizontal"
-    android:background="@color/colorPrimaryDark">
+    android:background="@color/title_bg_white"
+    android:tag="skin:title_bg:background">
 
     <!--左边-->
     <ImageView
@@ -21,7 +22,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:text="@string/test_string"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/color_text_white"
+        android:tag="skin:color_text:textColor"
         android:gravity="center"
         android:visibility="gone"
         android:textSize="@dimen/title_bar_small_text"
@@ -42,7 +44,8 @@
         android:layout_weight="1"
         android:gravity="center"
         android:text="@string/test_string"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/color_text_white"
+        android:tag="skin:color_text:textColor"
         android:textSize="@dimen/title_bar_big_text"
         android:visibility="gone"/>
 
@@ -62,7 +65,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:text="@string/test_string"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/color_text_white"
+        android:tag="skin:color_text:textColor"
         android:gravity="center"
         android:visibility="gone"
         android:textSize="@dimen/title_bar_small_text"

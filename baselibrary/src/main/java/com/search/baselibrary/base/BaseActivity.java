@@ -11,8 +11,10 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.search.baselibrary.R;
+import com.search.baselibrary.manager.SkinManager;
 import com.search.baselibrary.utils.ActivityManagerUtil;
 import com.search.baselibrary.utils.DisplayUtil;
+import com.search.baselibrary.utils.StatusBarUtil;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -26,10 +28,12 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
+        StatusBarUtil.setTransparent(BaseActivity.this);
         //统一管理Activity
         ActivityManagerUtil.getInstance().addActivity(this);
+        SkinManager.getInstance().register(this);
         //初始化StatusBar
-        initStatusBar();
+//        initStatusBar();
         //ButterKnife
         unbinder = ButterKnife.bind(this);
         mContext = this;

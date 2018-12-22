@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.gxl.searchcheck.ui.express.view.ExpressFragment;
@@ -18,6 +19,7 @@ import com.gxl.searchcheck.ui.translation.view.TranslationFragment;
 import com.gxl.searchcheck.ui.weather.view.WeatherFragment;
 import com.search.baselibrary.base.BaseActivity;
 import com.search.baselibrary.base.BaseFragment;
+import com.search.baselibrary.manager.SkinManager;
 import com.search.baselibrary.widget.CircleImageView;
 
 import java.util.ArrayList;
@@ -80,9 +82,11 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case R.id.item_movie:
+                SkinManager.getInstance().changeSkin("black");
                 switchFragment(mCurrentFragment, mFragments.get(0));
                 return true;
             case R.id.item_train:
+                SkinManager.getInstance().changeSkin("white");
                 switchFragment(mCurrentFragment, mFragments.get(1));
                 return true;
             case R.id.item_express:

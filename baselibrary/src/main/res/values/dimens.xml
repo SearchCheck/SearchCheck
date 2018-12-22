@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--dp阶段-->
-    <dimen name="title_bar_height">44dp</dimen>
+    <dimen name="title_bar_height">8.4dp</dimen>
     <!--sp阶段-->
     <dimen name="title_bar_small_text">14sp</dimen>
     <dimen name="title_bar_big_text">18sp</dimen>

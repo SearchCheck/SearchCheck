@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.search.baselibrary.manager.SkinManager;
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -23,6 +25,7 @@ public abstract class BaseFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, view);
+        SkinManager.getInstance().register(this.getActivity());
         mContext = getContext();
         initBefore(view);
         initView(view);
@@ -57,6 +60,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        SkinManager.getInstance().register(this.getActivity());
         if (unbinder != null) {
             unbinder.unbind();
         }
