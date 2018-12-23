@@ -6,9 +6,9 @@ import com.gxl.searchcheck.utils.AppConstants;
 import com.gxl.searchcheck.utils.FileUtils;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
-import com.orhanobut.logger.AndroidLogAdapter;
-import com.orhanobut.logger.Logger;
 import com.search.baselibrary.base.BaseApplication;
+import com.search.baselibrary.logger.AndroidLogAdapter;
+import com.search.baselibrary.logger.Logger;
 import com.search.baselibrary.manager.SkinManager;
 import com.search.baselibrary.utils.CrashHandler;
 
@@ -35,6 +35,12 @@ public class MyApplication extends BaseApplication {
         }
         //初始化Logger
         Logger.addLogAdapter(new AndroidLogAdapter());
+        Logger.d("debug");
+        Logger.e("error");
+        Logger.w("warning");
+        Logger.v("verbose");
+        Logger.i("information");
+        Logger.wtf("What a Terrible Failure");
     }
 
     public Context getContext() {

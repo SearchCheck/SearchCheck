@@ -46,6 +46,4 @@ dependencies {
     implementation 'com.hjq:xxpermissions:5.2'
     // greendao
     implementation 'org.greenrobot:greendao:3.2.2'
-    //log 地址 https://github.com/orhanobut/logger
-    implementation 'com.orhanobut:logger:2.2.0'
 }
