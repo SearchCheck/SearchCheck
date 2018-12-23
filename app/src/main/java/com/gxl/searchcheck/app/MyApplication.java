@@ -6,6 +6,8 @@ import com.gxl.searchcheck.utils.AppConstants;
 import com.gxl.searchcheck.utils.FileUtils;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.Logger;
 import com.search.baselibrary.base.BaseApplication;
 import com.search.baselibrary.manager.SkinManager;
 import com.search.baselibrary.utils.CrashHandler;
@@ -31,6 +33,8 @@ public class MyApplication extends BaseApplication {
             FileUtils.createAllDirs(this);
             CrashHandler.getInstance().init(this, AppConstants.ROOT_DIR + File.separator + AppConstants.LOG_DIR);
         }
+        //初始化Logger
+        Logger.addLogAdapter(new AndroidLogAdapter());
     }
 
     public Context getContext() {
