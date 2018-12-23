@@ -19,14 +19,14 @@ import butterknife.BindView;
  */
 public class TranslationFragment extends BaseFragment {
 
-    @BindView(R.id.titlebar)
+    @BindView(R.id.tb_translation)
     TitleBar mTitle;
     @BindView(R.id.recycler)
     RecyclerView mRecycler;
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_traslation;
+        return R.layout.fragment_translation;
     }
 
     @Override

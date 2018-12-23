@@ -29,13 +29,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
-//        StatusBarUtil.setTransparent(BaseActivity.this);
-        StatusBarUtil.setColor(BaseActivity.this, UiUtils.getColor(R.color.colorStatusToolBar),1);
+        StatusBarUtil.setColor(BaseActivity.this, UiUtils.getColor(R.color.colorStatusToolBar), 1);
         //统一管理Activity
         ActivityManagerUtil.getInstance().addActivity(this);
         SkinManager.getInstance().register(this);
-        //初始化StatusBar
-//        initStatusBar();
         //ButterKnife
         unbinder = ButterKnife.bind(this);
         mContext = this;
@@ -74,26 +71,6 @@ public abstract class BaseActivity extends AppCompatActivity {
      * 获取布局的id
      */
     protected abstract int getLayoutId();
-
-    /**
-     * 初始化StatusBar,目的是让状态栏和toolbar的颜色一致
-     */
-    private void initStatusBar() {
-        Window window = getWindow();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(getResources().getColor(R.color.colorStatusToolBar));
-        } else {
-            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            ViewGroup systemContent = findViewById(android.R.id.content);
-            View statusBarView = new View(this);
-            ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                    DisplayUtil.getStatusBarHeight());
-            statusBarView.setBackgroundColor(getResources().getColor(R.color.colorStatusToolBar));
-            systemContent.getChildAt(0).setFitsSystemWindows(true);
-            systemContent.addView(statusBarView, 0, lp);
-        }
-    }
 
     @Override
     protected void onDestroy() {

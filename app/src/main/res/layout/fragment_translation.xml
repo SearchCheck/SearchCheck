@@ -6,11 +6,10 @@
     android:tag="skin:activity_bg:background">
 
     <com.search.baselibrary.widget.TitleBar
-        android:id="@+id/titlebar"
+        android:id="@+id/tb_translation"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content" />
 
-    </com.search.baselibrary.widget.TitleBar>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler"

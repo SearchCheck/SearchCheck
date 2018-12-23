@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/title_bar_height"
     android:background="@color/colorStatusToolBar"
-    android:orientation="horizontal"
-    >
+    android:orientation="horizontal">
 
     <!--左边-->
     <ImageView
@@ -14,8 +13,8 @@
         android:layout_height="@dimen/dp_25"
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/dp_20"
-        android:visibility="visible"
-        android:background="@drawable/ic_back" />
+        android:background="@drawable/ic_back"
+        android:visibility="visible" />
 
     <TextView
         android:id="@+id/tv_left"

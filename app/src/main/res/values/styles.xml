@@ -8,8 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
     <!--启动页 的全屏-->
-    <style name="FullScreen" parent="Theme.AppCompat.DayNight.NoActionBar">
-    </style>
+    <style name="FullScreen" parent="Theme.AppCompat.DayNight.NoActionBar"/>
     <!--style注明用处-->
 
 </resources>

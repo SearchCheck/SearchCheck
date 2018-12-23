@@ -291,8 +291,9 @@ public class TitleBar extends LinearLayout implements View.OnClickListener {
 
     /**
      * 设置点击右边的图跳转Activity
+     *
      * @param thisActivity 当前Activity
-     * @param cls 目标Activity
+     * @param cls          目标Activity
      * @return
      */
     public TitleBar set2Activity(AppCompatActivity thisActivity, Class<?> cls) {
