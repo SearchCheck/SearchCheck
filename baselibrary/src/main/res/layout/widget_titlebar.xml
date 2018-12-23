@@ -1,76 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="@dimen/title_bar_height"
+    android:background="@color/colorStatusToolBar"
     android:orientation="horizontal"
-    android:background="@color/title_bg_white"
-    android:tag="skin:title_bg:background">
+    >
 
     <!--左边-->
     <ImageView
         android:id="@+id/img_left"
-        android:layout_width="@dimen/title_bar_height"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        app:srcCompat="@drawable/ic_back"
-        android:visibility="gone"/>
+        android:layout_width="@dimen/dp_25"
+        android:layout_height="@dimen/dp_25"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:visibility="visible"
+        android:background="@drawable/ic_back" />
 
     <TextView
         android:id="@+id/tv_left"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:tag="skin:color_text:textColor"
         android:text="@string/test_string"
         android:textColor="@color/color_text_white"
-        android:tag="skin:color_text:textColor"
-        android:gravity="center"
-        android:visibility="gone"
         android:textSize="@dimen/title_bar_small_text"
-        />
+        android:visibility="gone" />
 
     <!--中间-->
     <AutoCompleteTextView
         android:id="@+id/atv_search"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:visibility="gone"/>
+        android:layout_width="@dimen/dp_200"
+        android:layout_height="@dimen/auto_complete_text_view_height"
+        android:layout_centerInParent="true"
+        android:background="@null"
+        android:visibility="visible" />
 
     <TextView
         android:id="@+id/tv_title"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:tag="skin:color_text:textColor"
         android:text="@string/test_string"
         android:textColor="@color/color_text_white"
-        android:tag="skin:color_text:textColor"
-        android:textSize="@dimen/title_bar_big_text"
-        android:visibility="gone"/>
+        android:textSize="@dimen/title_bar_small_text"
+        android:visibility="visible" />
 
 
     <!--右边-->
     <ImageView
         android:id="@+id/img_right"
-        android:layout_width="@dimen/title_bar_height"
-        android:layout_height="match_parent"
-        android:padding="3dp"
-        android:gravity="center"
-        app:srcCompat="@drawable/ic_search"
-        android:visibility="gone"/>
+        android:layout_width="@dimen/dp_25"
+        android:layout_height="@dimen/dp_25"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/dp_10"
+        android:visibility="gone"
+        app:srcCompat="@drawable/ic_search" />
 
     <TextView
         android:id="@+id/tv_right"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/dp_10"
+        android:gravity="center"
+        android:tag="skin:color_text:textColor"
         android:text="@string/test_string"
         android:textColor="@color/color_text_white"
-        android:tag="skin:color_text:textColor"
-        android:gravity="center"
-        android:visibility="gone"
         android:textSize="@dimen/title_bar_small_text"
-        />
-
-
-</LinearLayout>
+        android:visibility="visible" />
+</RelativeLayout>

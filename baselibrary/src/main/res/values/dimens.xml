@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--dp阶段-->
-    <dimen name="title_bar_height">8.4dp</dimen>
+    <dimen name="title_bar_height">50dp</dimen>
+    <dimen name="auto_complete_text_view_height">30dp</dimen>
     <!--sp阶段-->
     <dimen name="title_bar_small_text">14sp</dimen>
     <dimen name="title_bar_big_text">18sp</dimen>
