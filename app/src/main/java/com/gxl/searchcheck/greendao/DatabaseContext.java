@@ -6,7 +6,7 @@ import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.gxl.searchcheck.utils.AppConstants;
-import com.gxl.searchcheck.utils.IOUtils;
+import com.gxl.searchcheck.utils.FileUtils;
 import com.search.baselibrary.utils.SDCardUtils;
 
 import java.io.File;
@@ -33,7 +33,7 @@ public class DatabaseContext extends ContextWrapper {
             return super.getDatabasePath(name);
         }
         //db存放的目录
-        String dbDirPath = IOUtils.getRootStoragePath(mContext) //主目录
+        String dbDirPath = FileUtils.getRootStoragePath(mContext) //主目录
                 + File.separator + AppConstants.DB_DIR; //db目录
         File dbDirFile = new File(dbDirPath);
         if (!dbDirFile.exists()) {

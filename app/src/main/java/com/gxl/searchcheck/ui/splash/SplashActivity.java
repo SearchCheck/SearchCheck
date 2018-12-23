@@ -1,5 +1,6 @@
 package com.gxl.searchcheck.ui.splash;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import com.gxl.searchcheck.MainActivity;
 import com.gxl.searchcheck.R;
+import com.gxl.searchcheck.utils.FileUtils;
 import com.hjq.permissions.OnPermission;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
@@ -29,6 +31,7 @@ public class SplashActivity extends AppCompatActivity {
 
     private TextView mTvJump;
     private ImageView mIvSearch;
+    private Context mContext;
     //跳转时间
     private int JUMP_TIME = 3;
     private Disposable mDisposable;
@@ -37,6 +40,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        this.mContext = this;
         //全屏 没有状态栏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         mTvJump = findViewById(R.id.tv_jump);
@@ -57,6 +61,7 @@ public class SplashActivity extends AppCompatActivity {
                     .request(new OnPermission() {
                         @Override
                         public void hasPermission(List<String> granted, boolean isAll) {
+                            FileUtils.createAllDirs(mContext);
                             jump();
                         }
 

@@ -23,6 +23,11 @@ public class AppConstants {
      */
     public static final String DB_NAME = "search";
 
+    public static final String[] DIRs = {
+            ROOT_DIR,
+            DB_DIR
+    };
+
     public static final String DICT = "DICT";
     public static final String TRANSLATE = "TRANSLATE";
     public static final String WEATHER = "WEATHER";
