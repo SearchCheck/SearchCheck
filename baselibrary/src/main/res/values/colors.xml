@@ -19,9 +19,8 @@
     <color name="color_15_black">#2000</color>
 
     <!--同一个用处 不同主题写在一起-->
-    <!--<color name="color_text_white">#8fff</color>-->
-    <color name="color_text_white">#efff</color>
-    <color name="color_text_black">#8000</color>
+    <color name="color_text_white">#8000</color>
+    <color name="color_text_black">#8fff</color>
 
     <!--Activity背景色-->
     <color name="activity_bg_white">#efff</color>

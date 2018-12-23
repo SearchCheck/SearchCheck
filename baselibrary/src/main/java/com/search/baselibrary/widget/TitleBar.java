@@ -1,9 +1,11 @@
 package com.search.baselibrary.widget;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,27 +22,30 @@ import com.search.baselibrary.utils.StringUtils;
  * date:2018/12/18 15:10
  * description: 标题栏
  */
-public class TitleBar extends LinearLayout {
+public class TitleBar extends LinearLayout implements View.OnClickListener {
 
     //左图中字右图 = 0
-    public static final int LEFT_IMAGE_MIDDLE_WORD_RIGHT_IMAGE = 0;
+    public static final int IMAGE_WORD_IMAGE = 0;
     //左图中搜右图 = 1
-    public static final int LEFT_IMAGE_MIDDLE_SEARCH_RIGHT_IMAGE = 1;
+    public static final int IMAGE_SEARCH_IMAGE = 1;
     //左图中搜右字 = 2
-    public static final int LEFT_IMAGE_MIDDLE_SEARCH_RIGHT_WORD = 2;
+    public static final int IMAGE_SEARCH_WORD = 2;
     //左图中字右字 = 3
-    public static final int LEFT_IMAGE_MIDDLE_WORD_RIGHT_WORD = 3;
+    public static final int IMAGE_WORD_WORD = 3;
     //左字中字右字 = 4
-    public static final int LEFT_WORD_MIDDLE_WORD_RIGHT_WORD = 4;
+    public static final int WORD_WORD_WORD = 4;
     //左字中搜右字 = 5
-    public static final int LEFT_WORD_MIDDLE_SEARCH_RIGHT_WORD = 5;
+    public static final int WORD_SEARCH_WORD = 5;
     //左字中字右图 = 6
-    public static final int LEFT_WORD_MIDDLE_WORD_RIGHT_IMAGE = 6;
+    public static final int WORD_WORD_IMAGE = 6;
     //左字中搜右图 = 7
-    public static final int LEFT_WORD_MIDDLE_SEARCH_RIGHT_IMAGE = 7;
+    public static final int WORD_SEARCH_IMAGE = 7;
 
     private int mShowType = 0;
     private Context mContext;
+    private AppCompatActivity thisActivity;
+    private Class<?> cls;
+    private boolean isJump = false;
 
     private ImageView mImgLeft;
     private ImageView mImgRight;
@@ -62,7 +67,7 @@ public class TitleBar extends LinearLayout {
         this.mContext = context;
         LayoutInflater.from(context).inflate(R.layout.widget_titlebar, this);
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.TitleBar);
-        mShowType = ta.getInteger(R.styleable.TitleBar_showType, LEFT_IMAGE_MIDDLE_WORD_RIGHT_IMAGE);
+        mShowType = ta.getInteger(R.styleable.TitleBar_showType, IMAGE_WORD_IMAGE);
         initView();
         setType();
         ta.recycle();
@@ -82,12 +87,12 @@ public class TitleBar extends LinearLayout {
         mTvTitle = findViewById(R.id.tv_title);
         //中间的搜索框
         mAtvSearch = findViewById(R.id.atv_search);
-//        mImgLeft.setOnClickListener(this);
+        mImgRight.setOnClickListener(this);
     }
 
     private void setType() {
         switch (mShowType) {
-            case LEFT_IMAGE_MIDDLE_WORD_RIGHT_IMAGE:
+            case IMAGE_WORD_IMAGE:
                 //左图中字右图
                 mImgLeft.setVisibility(VISIBLE);
                 mTvTitle.setVisibility(VISIBLE);
@@ -96,7 +101,7 @@ public class TitleBar extends LinearLayout {
                 mAtvSearch.setVisibility(GONE);
                 mTvRight.setVisibility(GONE);
                 break;
-            case LEFT_IMAGE_MIDDLE_SEARCH_RIGHT_IMAGE:
+            case IMAGE_SEARCH_IMAGE:
                 //左图中搜右图
                 mImgLeft.setVisibility(VISIBLE);
                 mAtvSearch.setVisibility(VISIBLE);
@@ -105,7 +110,7 @@ public class TitleBar extends LinearLayout {
                 mTvTitle.setVisibility(GONE);
                 mTvRight.setVisibility(GONE);
                 break;
-            case LEFT_IMAGE_MIDDLE_SEARCH_RIGHT_WORD:
+            case IMAGE_SEARCH_WORD:
                 //左图中搜右字
                 mImgLeft.setVisibility(VISIBLE);
                 mAtvSearch.setVisibility(VISIBLE);
@@ -114,7 +119,7 @@ public class TitleBar extends LinearLayout {
                 mTvTitle.setVisibility(GONE);
                 mImgRight.setVisibility(GONE);
                 break;
-            case LEFT_IMAGE_MIDDLE_WORD_RIGHT_WORD:
+            case IMAGE_WORD_WORD:
                 //左图中字右字
                 mImgLeft.setVisibility(VISIBLE);
                 mTvTitle.setVisibility(VISIBLE);
@@ -123,7 +128,7 @@ public class TitleBar extends LinearLayout {
                 mAtvSearch.setVisibility(GONE);
                 mImgRight.setVisibility(GONE);
                 break;
-            case LEFT_WORD_MIDDLE_WORD_RIGHT_WORD:
+            case WORD_WORD_WORD:
                 //左字中字右字
                 mTvLeft.setVisibility(VISIBLE);
                 mTvTitle.setVisibility(VISIBLE);
@@ -132,7 +137,7 @@ public class TitleBar extends LinearLayout {
                 mAtvSearch.setVisibility(GONE);
                 mImgRight.setVisibility(GONE);
                 break;
-            case LEFT_WORD_MIDDLE_SEARCH_RIGHT_WORD:
+            case WORD_SEARCH_WORD:
                 //左字中搜右字
                 mTvLeft.setVisibility(VISIBLE);
                 mAtvSearch.setVisibility(VISIBLE);
@@ -141,7 +146,7 @@ public class TitleBar extends LinearLayout {
                 mTvTitle.setVisibility(GONE);
                 mImgRight.setVisibility(GONE);
                 break;
-            case LEFT_WORD_MIDDLE_WORD_RIGHT_IMAGE:
+            case WORD_WORD_IMAGE:
                 //左字中字右图
                 mTvLeft.setVisibility(VISIBLE);
                 mTvTitle.setVisibility(VISIBLE);
@@ -150,7 +155,7 @@ public class TitleBar extends LinearLayout {
                 mAtvSearch.setVisibility(GONE);
                 mTvRight.setVisibility(GONE);
                 break;
-            case LEFT_WORD_MIDDLE_SEARCH_RIGHT_IMAGE:
+            case WORD_SEARCH_IMAGE:
                 //左字中搜右图
                 mTvLeft.setVisibility(VISIBLE);
                 mAtvSearch.setVisibility(VISIBLE);
@@ -179,21 +184,6 @@ public class TitleBar extends LinearLayout {
             view.setVisibility(GONE);
         }
     }
-
-   /* @Override
-    public void onClick(View v) {
-        if (onClickViewListener == null) {
-            return;
-        }
-        int i = v.getId();
-        if (i == R.id.img_left || i == R.id.tv_left) {
-            onClickViewListener.onLeftClickListener();
-        } else if (i == R.id.img_right || i == R.id.tv_right) {
-            onClickViewListener.onRightClickListener();
-        } else if (i == R.id.tv_title) {
-        } else if (i == R.id.atv_search) {
-        }
-    }*/
 
     /**
      * 设置左边的文字
@@ -300,6 +290,30 @@ public class TitleBar extends LinearLayout {
     }
 
     /**
+     * 设置点击右边的图跳转Activity
+     * @param thisActivity 当前Activity
+     * @param cls 目标Activity
+     * @return
+     */
+    public TitleBar set2Activity(AppCompatActivity thisActivity, Class<?> cls) {
+        if (mImgRight != null && cls != null && thisActivity != null) {
+            this.thisActivity = thisActivity;
+            this.cls = cls;
+            isJump = true;
+        }
+        return this;
+    }
+
+    /**
+     * 开始跳转
+     */
+    private void startActivity() {
+        Intent intent = new Intent(thisActivity, cls);
+        thisActivity.startActivity(intent);
+        thisActivity.overridePendingTransition(R.anim.slide_right_in, R.anim.slide_left_out);
+    }
+
+    /**
      * 设置类型
      */
     public TitleBar setType(int type) {
@@ -308,4 +322,12 @@ public class TitleBar extends LinearLayout {
         return this;
     }
 
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.img_right) {
+            if (isJump) {
+                startActivity();
+            }
+        }
+    }
 }

@@ -2,12 +2,11 @@ package com.gxl.searchcheck.ui.translation.view;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Toast;
 
 import com.gxl.searchcheck.MainActivity;
 import com.gxl.searchcheck.R;
+import com.search.baselibrary.base.BaseActivity;
 import com.search.baselibrary.base.BaseFragment;
-import com.search.baselibrary.utils.UiUtils;
 import com.search.baselibrary.widget.TitleBar;
 
 import butterknife.BindView;
@@ -33,18 +32,13 @@ public class TranslationFragment extends BaseFragment {
     @Override
     protected void initBefore(View view) {
         super.initBefore(view);
-        mTitle.setType(TitleBar.LEFT_IMAGE_MIDDLE_SEARCH_RIGHT_IMAGE)
+        mTitle.setType(TitleBar.IMAGE_SEARCH_IMAGE)
                 .setLeftImage(R.drawable.ic_menu)
-                .setOnRightClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(mContext, "右边", Toast.LENGTH_SHORT).show();
-                    }
-                })
+                .set2Activity((BaseActivity) this.getActivity(), MainActivity.class)
                 .setOnLeftClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ((MainActivity)getActivity()).toggleDrawableLayout();
+                        ((MainActivity) getActivity()).toggleDrawableLayout();
                     }
                 });
     }
