@@ -1,6 +1,5 @@
 package com.gxl.searchcheck.greendao;
 
-import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.gxl.searchcheck.app.MyApplication;
@@ -18,7 +17,7 @@ public class DaoManager {
     private final DaoMaster.DevOpenHelper mHelper;
     private final DaoMaster mDaoMaster;
 
-    private DaoManager() {
+    protected DaoManager() {
         mHelper = new DaoMaster.DevOpenHelper(new DatabaseContext(MyApplication.getInstance()),
                 AppConstants.DB_NAME, null);
         SQLiteDatabase db = mHelper.getWritableDatabase();

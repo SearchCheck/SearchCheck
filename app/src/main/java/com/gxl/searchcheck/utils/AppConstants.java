@@ -11,7 +11,12 @@ public class AppConstants {
     /**
      * 数据库目录
      */
-    public static final String DB_DIR = "search";
+    public static final String DB_DIR = "hello-ketty";
+
+    /**
+     * log文件目录
+     */
+    public static final String LOG_DIR = "hello-world";
 
     /**
      * 存放数据的主目录
@@ -21,11 +26,12 @@ public class AppConstants {
     /**
      * 数据库的名称
      */
-    public static final String DB_NAME = "search";
+    public static final String DB_NAME = "search.hello-ketty";
 
     public static final String[] DIRs = {
             ROOT_DIR,
-            DB_DIR
+            DB_DIR,
+            LOG_DIR
     };
 
     public static final String DICT = "DICT";

@@ -2,12 +2,15 @@ package com.gxl.searchcheck.app;
 
 import android.content.Context;
 
+import com.gxl.searchcheck.utils.AppConstants;
+import com.gxl.searchcheck.utils.FileUtils;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
 import com.search.baselibrary.base.BaseApplication;
 import com.search.baselibrary.manager.SkinManager;
-import com.search.baselibrary.utils.AppUtils;
 import com.search.baselibrary.utils.CrashHandler;
+
+import java.io.File;
 
 /**
  * @author Tomze
@@ -24,8 +27,9 @@ public class MyApplication extends BaseApplication {
         this.mContext = this;
         SkinManager.getInstance().init(this);
         // 判断  是debug模式 且 有写文件的权限 保存崩溃日志注册
-        if (AppUtils.isDebug(mContext) && XXPermissions.isHasPermission(this, Permission.WRITE_EXTERNAL_STORAGE)) {
-            CrashHandler.getInstance().init(this);
+        if (XXPermissions.isHasPermission(this, Permission.WRITE_EXTERNAL_STORAGE)) {
+            FileUtils.createAllDirs(this);
+            CrashHandler.getInstance().init(this, AppConstants.ROOT_DIR + File.separator + AppConstants.LOG_DIR);
         }
     }
 

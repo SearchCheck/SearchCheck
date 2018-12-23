@@ -7,7 +7,6 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.Looper;
 import android.os.SystemClock;
-import android.util.Log;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -39,6 +38,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
 
     // 用于格式化日期,作为日志文件名的一部分
     private DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private static String path = "";
 
     /**
      * 保证只有一个CrashHandler实例
@@ -58,8 +58,9 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
      *
      * @param context
      */
-    public void init(Context context) {
+    public void init(Context context, String path) {
         mContext = context;
+        this.path =path;
         // 获取系统默认的UncaughtException处理器
         mDefaultHandler = Thread.getDefaultUncaughtExceptionHandler();
         // 设置该CrashHandler为程序的默认处理器
@@ -101,7 +102,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
                 @Override
                 public void run() {
                     Looper.prepare();
-                    ToastUtils.showL("很抱歉,程序出现异常,即将重启");
+                    ToastUtils.showL("程序出现异常,即将重启");
                     Looper.loop();
                 }
             }.start();
@@ -133,7 +134,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
                 infos.put("versionCode", versionCode);
             }
         } catch (PackageManager.NameNotFoundException e) {
-            Log.e(TAG, "an error occured when collect package info", e);
+            e.printStackTrace();
         }
         Field[] fields = Build.class.getDeclaredFields();
         for (Field field : fields) {
@@ -141,7 +142,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
                 field.setAccessible(true);
                 infos.put(field.getName(), field.get(null).toString());
             } catch (Exception e) {
-                Log.e(TAG, "an error occured when collect crash info", e);
+                e.printStackTrace();
             }
         }
     }
@@ -206,7 +207,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
     }
 
     public static String getGlobalPath() {
-        return Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "SearchCheck" + File.separator;
+        return Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + path + File.separator;
     }
 
     public static void setTag(String tag) {
