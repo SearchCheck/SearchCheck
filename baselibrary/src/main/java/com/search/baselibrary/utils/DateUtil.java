@@ -271,7 +271,11 @@ public class DateUtil {
 
     }
 
-
+    public static String getYear(Date date){
+        calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.YEAR) +"";
+    }
 
     /**
      * 功能描述：返回月

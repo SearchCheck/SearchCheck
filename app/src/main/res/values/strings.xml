@@ -11,6 +11,8 @@
 
     <string name="home_head_title">点击头像进行登录</string>
     <string name="splash_jump">%s 跳过</string>
+    <string name="copy_right">CopyRight © 2018-%s Hello-ToT.</string>
+    <string name="all_right">All Rights Reserved.</string>
 
     <string name="permission_denied">你拒绝了权限！程序无法正常运行！</string>
 </resources>

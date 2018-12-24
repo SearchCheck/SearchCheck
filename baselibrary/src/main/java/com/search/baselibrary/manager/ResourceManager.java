@@ -18,55 +18,45 @@ public class ResourceManager {
     private String mSuffix;
 
 
-    public ResourceManager(Resources res, String pluginPackageName, String suffix)
-    {
+    public ResourceManager(Resources res, String pluginPackageName, String suffix) {
         mResources = res;
         mPluginPackageName = pluginPackageName;
 
-        if (suffix == null)
-        {
+        if (suffix == null) {
             suffix = "";
         }
         mSuffix = suffix;
 
     }
 
-    public Drawable getDrawableByName(String name)
-    {
-        try
-        {
+    public Drawable getDrawableByName(String name) {
+        try {
             name = appendSuffix(name);
             return mResources.getDrawable(mResources.getIdentifier(name, DEFTYPE_DRAWABLE, mPluginPackageName));
-        } catch (Resources.NotFoundException e)
-        {
-            e.printStackTrace();
+        } catch (Resources.NotFoundException e) {
+//            e.printStackTrace();
             return null;
         }
     }
 
-    public int getColor(String name) throws Resources.NotFoundException
-    {
+    public int getColor(String name) throws Resources.NotFoundException {
         name = appendSuffix(name);
         return mResources.getColor(mResources.getIdentifier(name, DEFTYPE_COLOR, mPluginPackageName));
     }
 
-    public ColorStateList getColorStateList(String name)
-    {
-        try
-        {
+    public ColorStateList getColorStateList(String name) {
+        try {
             name = appendSuffix(name);
             return mResources.getColorStateList(mResources.getIdentifier(name, DEFTYPE_COLOR, mPluginPackageName));
 
-        } catch (Resources.NotFoundException e)
-        {
+        } catch (Resources.NotFoundException e) {
             e.printStackTrace();
             return null;
         }
 
     }
 
-    private String appendSuffix(String name)
-    {
+    private String appendSuffix(String name) {
         if (!TextUtils.isEmpty(mSuffix))
             return name += "_" + mSuffix;
         return name;

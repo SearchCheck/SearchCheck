@@ -27,6 +27,7 @@ public class MyApplication extends BaseApplication {
     public void onCreate() {
         super.onCreate();
         this.mContext = this;
+        // 注册换肤模式
         SkinManager.getInstance().init(this);
         // 判断  是debug模式 且 有写文件的权限 保存崩溃日志注册
         if (XXPermissions.isHasPermission(this, Permission.WRITE_EXTERNAL_STORAGE)) {
@@ -35,12 +36,6 @@ public class MyApplication extends BaseApplication {
         }
         //初始化Logger
         Logger.addLogAdapter(new AndroidLogAdapter());
-        Logger.d("debug");
-        Logger.e("error");
-        Logger.w("warning");
-        Logger.v("verbose");
-        Logger.i("information");
-        Logger.wtf("What a Terrible Failure");
     }
 
     public Context getContext() {

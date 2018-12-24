@@ -3,7 +3,9 @@ package com.gxl.searchcheck.ui.splash;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,12 +16,19 @@ import com.gxl.searchcheck.utils.FileUtils;
 import com.hjq.permissions.OnPermission;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
+import com.search.baselibrary.logger.Logger;
 import com.search.baselibrary.utils.AppUtils;
+import com.search.baselibrary.utils.DateUtil;
 import com.search.baselibrary.utils.ToastUtils;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -27,26 +36,31 @@ import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView mTvJump;
-    private ImageView mIvSearch;
+    @BindView(R.id.tv_jump)
+    TextView mTvJump;
+    @BindView(R.id.iv_search)
+    ImageView mIvSearch;
+    @BindView(R.id.tv_copy_right)
+    TextView mTvCopyRight;
+
     private Context mContext;
-    //跳转时间
-    private int JUMP_TIME = 3;
-    private Disposable mDisposable;
+    private int JUMP_TIME = 5;
+    private Timer timer;
+    private Handler mHandler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        ButterKnife.bind(this);
         this.mContext = this;
         //全屏 没有状态栏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        mTvJump = findViewById(R.id.tv_jump);
-        mIvSearch = findViewById(R.id.iv_search);
-        JUMP_TIME = AppUtils.isDebug(this) ? 0 : 3;
-        initPermissions();
+        JUMP_TIME = AppUtils.isDebug(this) ? 0 : JUMP_TIME;
+        mTvJump.setOnClickListener(this);
+        mTvCopyRight.setText(String.format(getString(R.string.copy_right), DateUtil.getYear(new Date())));
     }
 
     /**
@@ -78,23 +92,57 @@ public class SplashActivity extends AppCompatActivity {
      * 几秒后跳转
      */
     private void jump() {
-        mDisposable = Observable.intervalRange(0, JUMP_TIME, 0, 1, TimeUnit.SECONDS)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .doOnNext(new Consumer<Long>() {
-                    @Override
-                    public void accept(Long aLong) throws Exception {
-                        mTvJump.setText(String.format(getString(R.string.splash_jump), (JUMP_TIME - aLong) + ""));
-                    }
-                })
-                .doOnComplete(new Action() {
-                    @Override
-                    public void run() throws Exception {
-                        Intent toMain = new Intent(SplashActivity.this, MainActivity.class);
-                        startActivity(toMain);
-                        finish();
-                    }
-                })
-                .subscribe();
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                JUMP_TIME--;
+                if (JUMP_TIME == 0){
+                    jump2Activity();
+                }else{
+                    mHandler.post(new Run2ChangeTime());
+                }
+            }
+        }, 1000, 1000);
+    }
+
+    class Run2ChangeTime implements Runnable {
+        @Override
+        public void run() {
+            mTvJump.setText(String.format(getString(R.string.splash_jump), JUMP_TIME + ""));
+        }
+    }
+
+    private void jump2Activity(){
+        Intent toMain = new Intent(SplashActivity.this, MainActivity.class);
+        startActivity(toMain);
+        finish();
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.tv_jump:
+                jump2Activity();
+                break;
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (JUMP_TIME > 0){
+            initPermissions();
+        }else{
+            jump2Activity();
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (timer != null){
+            timer.cancel();
+        }
     }
 }
