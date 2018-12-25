@@ -1,13 +1,21 @@
 apply plugin: 'com.android.application'
 apply plugin: 'org.greenrobot.greendao'
+
+def config = new ConfigSlurper().parse(new File("app_config.properties").toURL())
+String version_name = config.VERSION_NAME
+int version_code = config.VERSION_CODE
+int version_db = config.VERSION_DB
+int sdk_version = config.COMPILE_TARGET_VERSION
+int min_version = config.MIN_SDK_VERSION
+
 android {
-    compileSdkVersion 28
+    compileSdkVersion sdk_version
     defaultConfig {
         applicationId "com.gxl.searchcheck"
-        minSdkVersion 19
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion min_version
+        targetSdkVersion sdk_version
+        versionCode version_code
+        versionName version_name
         multiDexEnabled true
     }
     buildTypes {
@@ -17,7 +25,7 @@ android {
         }
     }
     greendao {
-        schemaVersion 2 //数据库版本号
+        schemaVersion version_db //数据库版本号
         //设置DaoMaster、DaoSession、Dao目录
         daoPackage 'com.gxl.searchcheck.greendao'
         targetGenDir 'src/main/java'
