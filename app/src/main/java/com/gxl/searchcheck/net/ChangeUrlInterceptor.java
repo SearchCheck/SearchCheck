@@ -28,7 +28,7 @@ public class ChangeUrlInterceptor implements Interceptor {
             builder.removeHeader("base_url");
             String headerValue = headerValues.get(0);
             HttpUrl newBaseUrl = null;
-            switch (headerValue){
+            switch (headerValue) {
                 case AppConstants.DICT:
                     newBaseUrl = HttpUrl.parse(URLs.DICT_URL);
                     break;

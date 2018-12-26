@@ -7,8 +7,7 @@ import com.gxl.searchcheck.utils.FileUtils;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
 import com.search.baselibrary.base.BaseApplication;
-import com.search.baselibrary.logger.AndroidLogAdapter;
-import com.search.baselibrary.logger.Logger;
+import com.search.baselibrary.log.LogUtils;
 import com.search.baselibrary.manager.SkinManager;
 import com.search.baselibrary.utils.CrashHandler;
 
@@ -33,9 +32,8 @@ public class MyApplication extends BaseApplication {
         if (XXPermissions.isHasPermission(this, Permission.WRITE_EXTERNAL_STORAGE)) {
             FileUtils.createAllDirs(this);
             CrashHandler.getInstance().init(this, AppConstants.ROOT_DIR + File.separator + AppConstants.LOG_DIR);
+            LogUtils.Builder lBuilder = new LogUtils.Builder();
         }
-        //初始化Logger
-        Logger.addLogAdapter(new AndroidLogAdapter());
     }
 
     public Context getContext() {

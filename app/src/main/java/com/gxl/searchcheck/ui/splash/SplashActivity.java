@@ -16,7 +16,6 @@ import com.gxl.searchcheck.utils.FileUtils;
 import com.hjq.permissions.OnPermission;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
-import com.search.baselibrary.logger.Logger;
 import com.search.baselibrary.utils.AppUtils;
 import com.search.baselibrary.utils.DateUtil;
 import com.search.baselibrary.utils.ToastUtils;
@@ -25,16 +24,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Action;
-import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
 
 public class SplashActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -97,9 +89,9 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void run() {
                 JUMP_TIME--;
-                if (JUMP_TIME == 0){
+                if (JUMP_TIME == 0) {
                     jump2Activity();
-                }else{
+                } else {
                     mHandler.post(new Run2ChangeTime());
                 }
             }
@@ -113,7 +105,7 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
-    private void jump2Activity(){
+    private void jump2Activity() {
         Intent toMain = new Intent(SplashActivity.this, MainActivity.class);
         startActivity(toMain);
         finish();
@@ -121,7 +113,7 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.tv_jump:
                 jump2Activity();
                 break;
@@ -131,9 +123,9 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onStart() {
         super.onStart();
-        if (JUMP_TIME > 0){
+        if (JUMP_TIME > 0) {
             initPermissions();
-        }else{
+        } else {
             jump2Activity();
         }
     }
@@ -141,7 +133,7 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onStop() {
         super.onStop();
-        if (timer != null){
+        if (timer != null) {
             timer.cancel();
         }
     }

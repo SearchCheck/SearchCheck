@@ -1,6 +1,7 @@
 package com.gxl.searchcheck.ui.translation.view;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 import com.gxl.searchcheck.MainActivity;
@@ -32,14 +33,21 @@ public class TranslationFragment extends BaseFragment {
     @Override
     protected void initBefore(View view) {
         super.initBefore(view);
-        mTitle.setType(TitleBar.IMAGE_SEARCH_IMAGE)
+        mTitle.setType(TitleBar.IMAGE_WORD_IMAGE)
                 .setLeftImage(R.drawable.ic_menu)
-                .set2Activity((BaseActivity) this.getActivity(), MainActivity.class)
+                .setTitleText("单词")
+                .set2Activity((BaseActivity) this.getActivity(), SearchActivity.class)
                 .setOnLeftClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         ((MainActivity) getActivity()).toggleDrawableLayout();
                     }
                 });
+    }
+
+    @Override
+    protected void initData() {
+        super.initData();
+        //在标题下面放一些和英语相关的内容
     }
 }

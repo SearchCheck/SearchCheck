@@ -24,7 +24,7 @@
         android:layout_marginLeft="@dimen/dp_10"
         android:tag="skin:color_text:textColor"
         android:text="@string/test_string"
-        android:textColor="@color/color_text_white"
+        android:textColor="@color/white"
         android:textSize="@dimen/title_bar_small_text"
         android:visibility="gone" />
 
@@ -34,17 +34,18 @@
         android:layout_width="@dimen/dp_200"
         android:layout_height="@dimen/auto_complete_text_view_height"
         android:layout_centerInParent="true"
-        android:background="@null"
+        android:background="@drawable/shape_title_edit"
+        android:padding="@dimen/dp_5"
+        android:textCursorDrawable="@drawable/focus_title_cursor"
         android:visibility="visible" />
-
+    <!--android:tag="skin:color_text:textColor"这个标签影响显示效果-->
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:tag="skin:color_text:textColor"
         android:text="@string/test_string"
-        android:textColor="@color/color_text_white"
+        android:textColor="@color/white"
         android:textSize="@dimen/title_bar_small_text"
         android:visibility="visible" />
 
@@ -70,7 +71,7 @@
         android:gravity="center"
         android:tag="skin:color_text:textColor"
         android:text="@string/test_string"
-        android:textColor="@color/color_text_white"
+        android:textColor="@color/white"
         android:textSize="@dimen/title_bar_small_text"
         android:visibility="visible" />
 </RelativeLayout>
