@@ -2,4 +2,7 @@
     <string name="app_name">BaseLibrary</string>
 
     <string name="test_string">测试文字</string>
+    <string name="spd"/>
+    <string name="original_y"/>
+    <string name="isUp"/>
 </resources>
