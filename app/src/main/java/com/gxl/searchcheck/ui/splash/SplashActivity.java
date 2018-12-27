@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.gxl.searchcheck.MainActivity;
 import com.gxl.searchcheck.R;
+import com.gxl.searchcheck.TestActivity;
 import com.gxl.searchcheck.utils.FileUtils;
 import com.hjq.permissions.OnPermission;
 import com.hjq.permissions.Permission;
@@ -106,7 +107,7 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void jump2Activity() {
-        Intent toMain = new Intent(SplashActivity.this, MainActivity.class);
+        Intent toMain = new Intent(SplashActivity.this, TestActivity.class);
         startActivity(toMain);
         finish();
     }

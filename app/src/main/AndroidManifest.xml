@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <!-- end  权限申请区 -->
     <application
         android:name=".app.MyApplication"
@@ -47,7 +48,8 @@
 
 
         <!-- end  广播区 -->
-        <activity android:name=".ui.translation.view.SearchActivity"></activity>
+        <activity android:name=".ui.translation.view.SearchActivity" />
+        <activity android:name=".TestActivity"></activity>
     </application>
 
 </manifest>

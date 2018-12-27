@@ -102,6 +102,8 @@ public class WaterView extends FrameLayout {
     private int maxX, maxY;//子view的x坐标和y坐标的最大取值
     private float mMaxSpace;//父控件对角线的距离
     private Point mDestroyPoint;//view销毁时的点
+    private Water mLastWater; // 保存上一个点击的水滴
+    private List<Water> waters;
 
 
     public WaterView(@NonNull Context context) {
@@ -172,6 +174,7 @@ public class WaterView extends FrameLayout {
         if (waters == null || waters.isEmpty()) {
             return;
         }
+        this.waters = waters;
         //确保初始化完成
         post(new Runnable() {
             @Override
@@ -248,10 +251,21 @@ public class WaterView extends FrameLayout {
         Object tag = view.getTag();
         if (tag instanceof Water) {
             Water waterTag = (Water) tag;
-            mTotalConsumeWater += waterTag.getNumber();
-            Toast.makeText(getContext(), "当前点击的是：" + waterTag.getName() + "水滴的值是:"
-                    + waterTag.getNumber() + "总的水滴数是" + mTotalConsumeWater, Toast.LENGTH_SHORT).show();
+            //TODO: 保存last水滴的大小， 用当前水滴去判断 是否大于last水滴 是否需要进行重置
+            if (mLastWater != null){
+                if (mLastWater.number > waterTag.number){
+                    this.setWaters(waters);
+                    mLastWater =null;
+                    removeView(view);
+                    return;
+                }
+            }
+            mLastWater = waterTag;
+//            mTotalConsumeWater += waterTag.getNumber();
+//            Toast.makeText(getContext(), "当前点击的是：" + waterTag.getName() + "水滴的值是:"
+//                    + waterTag.getNumber() + "总的水滴数是" + mTotalConsumeWater, Toast.LENGTH_SHORT).show();
         }
+
         view.setTag(R.string.original_y, view.getY());
         animRemoveView(view);
     }
@@ -330,7 +344,7 @@ public class WaterView extends FrameLayout {
                 view.setTag(R.string.isUp, true);
             } else if (translationY - original < -CHANGE_RANGE) {
                 translationY = original - CHANGE_RANGE;
-                // FIXME:每次当水滴回到初始点时再一次设置水滴的速度，从而达到时而快时而慢
+                // FIXME:达每次当水滴回到初始点时再一次设置水滴的速度，从而到时而快时而慢
                 setSpd(view);
                 view.setTag(R.string.isUp, false);
             }
@@ -423,7 +437,7 @@ public class WaterView extends FrameLayout {
         mHandler.removeCallbacksAndMessages(this);
     }
 
-    class Water{
+    public static class Water{
         private int number;
         private String name;
 
