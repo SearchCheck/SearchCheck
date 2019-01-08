@@ -3,6 +3,7 @@ package com.gxl.searchcheck.greendao;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.gxl.searchcheck.app.MyApplication;
+import com.gxl.searchcheck.helper.UpdateSQLiteOpenHelper;
 import com.gxl.searchcheck.utils.AppConstants;
 
 /**
@@ -14,14 +15,17 @@ import com.gxl.searchcheck.utils.AppConstants;
 public class DaoManager {
 
     private static volatile DaoManager mInstance;
-    private final DaoMaster.DevOpenHelper mHelper;
-    private final DaoMaster mDaoMaster;
+    private DaoMaster mDaoMaster;
 
     protected DaoManager() {
-        mHelper = new DaoMaster.DevOpenHelper(new DatabaseContext(MyApplication.getInstance()),
+//        mHelper = new DaoMaster.DevOpenHelper(new DatabaseContext(MyApplication.getInstance()),
+//                AppConstants.DB_NAME, null);
+//        SQLiteDatabase db = mHelper.getWritableDatabase();
+        //这里如果需要数据库升级保留数据 修改如下：
+        UpdateSQLiteOpenHelper helper = new UpdateSQLiteOpenHelper(new DatabaseContext(MyApplication.getInstance()),
                 AppConstants.DB_NAME, null);
-        SQLiteDatabase db = mHelper.getWritableDatabase();
-        mDaoMaster = new DaoMaster(db);
+        SQLiteDatabase database = helper.getWritableDatabase();
+        mDaoMaster = new DaoMaster(database);
     }
 
     /**
