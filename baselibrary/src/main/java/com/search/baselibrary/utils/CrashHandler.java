@@ -37,8 +37,9 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
     private Map<String, String> infos = new HashMap<String, String>();
 
     // 用于格式化日期,作为日志文件名的一部分
-    private DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    private static String path = "";
+    private DateFormat formatter = new SimpleDateFormat("yyyy/MM/dd HH-mm-ss");
+    //默认文件夹时AppSearch
+    private static String path = "AppSearch";
 
     /**
      * 保证只有一个CrashHandler实例
@@ -60,7 +61,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
      */
     public void init(Context context, String path) {
         mContext = context;
-        this.path =path;
+        this.path = path;
         // 获取系统默认的UncaughtException处理器
         mDefaultHandler = Thread.getDefaultUncaughtExceptionHandler();
         // 设置该CrashHandler为程序的默认处理器
@@ -207,7 +208,8 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
     }
 
     public static String getGlobalPath() {
-        return Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + path + File.separator;
+        return Environment.getExternalStorageDirectory().getAbsolutePath()
+                + File.separator + path + File.separator;
     }
 
     public static void setTag(String tag) {
