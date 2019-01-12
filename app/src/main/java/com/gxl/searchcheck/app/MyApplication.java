@@ -32,7 +32,7 @@ public class MyApplication extends BaseApplication {
         // 判断  是debug模式 且 有写文件的权限 保存崩溃日志注册
         if (XXPermissions.isHasPermission(this, Permission.WRITE_EXTERNAL_STORAGE)) {
             FileUtils.createAllDirs(this);
-            CrashHandler.getInstance().init(this, AppConstants.LOG_DIR + File.separator + AppConstants.LOG_DIR);
+            CrashHandler.getInstance().init(this, AppConstants.ROOT_DIR + File.separator + AppConstants.LOG_DIR);
             new LogUtils.Builder();
         }
     }
