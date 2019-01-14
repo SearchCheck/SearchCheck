@@ -1,6 +1,5 @@
 package com.gxl.searchcheck.app;
 
-import android.app.Application;
 import android.content.Context;
 
 import com.gxl.searchcheck.utils.AppConstants;
