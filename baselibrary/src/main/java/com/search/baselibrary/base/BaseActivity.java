@@ -1,19 +1,13 @@
 package com.search.baselibrary.base;
 
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 
 import com.search.baselibrary.R;
 import com.search.baselibrary.manager.SkinManager;
 import com.search.baselibrary.utils.ActivityManagerUtil;
-import com.search.baselibrary.utils.DisplayUtil;
 import com.search.baselibrary.utils.StatusBarUtil;
 import com.search.baselibrary.utils.UiUtils;
 
